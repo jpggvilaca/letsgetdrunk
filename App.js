@@ -6,7 +6,7 @@ import Game from './components/Game';
 
 export default class App extends Component {
   state = {
-    startGame: false,
+    startGame: true, // revert to false, this is for debug only
     playersPicked: false,
   };
 
