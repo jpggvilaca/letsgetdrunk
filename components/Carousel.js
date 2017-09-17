@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { Text, View, Dimensions } from 'react-native';
 import Button from 'react-native-button';
 import Carousel from 'react-native-looped-carousel';
+import CarouselSlide from './CarouselSlide';
+import { carouselMessages } from '../Copy';
 
 const { width, height } = Dimensions.get('window');
-const screenContent = [
-  'So you want to get drunk eh?',
-  'Well you came to the right place!',
-  'Let\'s do this. Everyone, pick a color!'
-];
 
 const carouselStyles = {
   wrapper: {
@@ -22,22 +19,7 @@ const carouselStyles = {
   },
 };
 
-const buttonContainerStyles = {
-  backgroundColor: '#333',
-  borderRadius: 4,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: 80,
-};
-
-const buttonStyles = {
-  color: '#fff',
-  fontSize: 24,
-};
-
 export default class IntroCarousel extends Component {
-
   constructor(props) {
     super(props);
 
@@ -66,27 +48,17 @@ export default class IntroCarousel extends Component {
           style={this.state.size}
           pageStyle={carouselStyles.wrapper}
         >
-          <View style={[this.state.size]}>
-            <Text style={carouselStyles.text}>
-              {screenContent[0]}
-            </Text>
-          </View>
-          <View style={[this.state.size]}>
-            <Text style={carouselStyles.text}>
-              {screenContent[1]}
-            </Text>
-          </View>
-          <View style={[this.state.size]}>
-            <Text style={carouselStyles.text}>
-              {screenContent[2]}
-            </Text>
-            <Button
-              containerStyle={buttonContainerStyles}
-              style={buttonStyles}
-              onPress={this.handlePress}>
-              Start the Game
-            </Button>
-          </View>
+          {carouselMessages.map((message, index) => (
+            <CarouselSlide
+              size={this.state.size}
+              message={message}
+              styles={carouselStyles}
+              slideCount={carouselMessages.length}
+              index={index}
+              handlePress={this.handlePress}
+              key={index}
+            />
+          ))}
         </Carousel>
       </View>
     );
