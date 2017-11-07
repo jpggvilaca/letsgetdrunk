@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Text, View, Dimensions } from 'react-native';
 import Button from 'react-native-button';
 
@@ -17,6 +18,16 @@ const buttonStyles = {
 };
 
 class CarouselSlide extends Component {
+  static propTypes = {
+    size: PropTypes.object,
+    message: PropTypes.string,
+    styles: PropTypes.object,
+    slideCount: PropTypes.number,
+    index: PropTypes.number,
+    handlePress: PropTypes.func,
+    key: PropTypes.number,
+  }
+
   render() {
     const { size, styles, slideCount, index, message, handlePress } = this.props;
     const isLast = slideCount === index + 1;
@@ -24,16 +35,15 @@ class CarouselSlide extends Component {
     return (
       <View style={[size]}>
         <Text style={styles.text}>
-          {
-            message
-          }
+          {message}
         </Text>
         {
           isLast
             ? <Button
                 containerStyle={buttonContainerStyles}
                 style={buttonStyles}
-                onPress={handlePress}>
+                onPress={handlePress}
+              >
                 Start the Game
               </Button>
             : null

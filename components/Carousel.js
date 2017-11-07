@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Text, View, Dimensions } from 'react-native';
 import Button from 'react-native-button';
 import Carousel from 'react-native-looped-carousel';
+
 import CarouselSlide from './CarouselSlide';
 import { carouselMessages } from '../Copy';
 
@@ -20,17 +22,30 @@ const carouselStyles = {
 };
 
 export default class IntroCarousel extends Component {
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    gameWillStart: PropTypes.func
+  };
 
-    this.state = {
-      size: { width, height }
-    };
+  static defaultProps = {
+    gameWillStart: () => {}
+  };
+
+  state = {
+    size: {
+      width,
+      height
+    }
   }
 
   onLayoutDidChange = (e) => {
     const layout = e.nativeEvent.layout;
-    this.setState({ size: { width: layout.width, height: layout.height } });
+
+    this.setState({
+      size: {
+        width: layout.width,
+        height: layout.height
+      }
+    });
   }
 
   handlePress = (e) => {
@@ -40,8 +55,10 @@ export default class IntroCarousel extends Component {
   }
 
   render() {
+    const { size } = this.state;
+
     return (
-      <View onLayout={this.onLayoutDidChange} style={this.state.size}>
+      <View onLayout={this.onLayoutDidChange} style={size}>
         <Carousel
           delay={2000}
           autoplay={false}
@@ -50,7 +67,7 @@ export default class IntroCarousel extends Component {
         >
           {carouselMessages.map((message, index) => (
             <CarouselSlide
-              size={this.state.size}
+              size={size}
               message={message}
               styles={carouselStyles}
               slideCount={carouselMessages.length}
