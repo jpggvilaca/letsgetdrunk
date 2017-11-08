@@ -75,7 +75,9 @@ export default class PickPlayers extends Component {
       <View>
         <Text>Pick Players</Text>
 
-        <PlayerList players={players} />
+        {
+          <PlayerList players={players} />
+        }
 
         <TextInput
           style={{height: 40, borderColor: 'gray', borderWidth: 1}}
