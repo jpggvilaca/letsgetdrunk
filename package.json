@@ -25,6 +25,9 @@
     "react-native": "^0.48.4",
     "react-native-button": "^2.1.0",
     "react-native-form-generator": "^0.9.9",
-    "react-native-looped-carousel": "^0.1.7"
+    "react-native-looped-carousel": "^0.1.7",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "reselect": "^3.0.1"
   }
 }
