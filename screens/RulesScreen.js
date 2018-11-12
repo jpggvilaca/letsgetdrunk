@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, StyleSheet } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, FlatList } from 'react-native';
+
+import { rules } from '../constants/Copy';
 
 export default class RulesScreen extends Component {
   static navigationOptions = {
     title: 'Rules',
   };
 
+  renderItem = ({ item }) => {
+    return (
+      <View style={styles.item}>
+        <Text style={styles.name}>{item.key}:</Text>
+        <Text>{item.description}</Text>
+      </View>
+    );
+  }
+
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text>Rules Screen</Text>
+        <FlatList
+          data={rules}
+          renderItem={this.renderItem}
+        />
       </ScrollView>
     );
   }
@@ -20,5 +34,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+  },
+  name: {
+    color: 'blue',
+    fontSize: 16,
+  },
+  item: {
+    marginBottom: 10,
   },
 });

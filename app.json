@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "my-app",
-    "description": "A very interesting project.",
-    "slug": "my-app",
+    "description": "A stupid drinking game just for fun",
+    "slug": "lgd",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": ["ios", "android"],
