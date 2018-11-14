@@ -1,6 +1,7 @@
 export const instructions = [
   { key: '', description: 'One turn per player' },
   { key: '', description: 'Clockwise order' },
+  { key: '', description: 'The darker the color of the card, the worse the punishment it will be' },
 ];
 
 export const permanentRules = [
@@ -9,13 +10,37 @@ export const permanentRules = [
 ];
 
 export const rules = [
-  { key: 'WATERFALL', description: 'Start drinking and it goes round the circle (to the right), you only stop drinking when the person on your left finishes.' },
-  { key: 'GOD', description: 'Pick someone to drink' },
-  { key: 'KAMIKAZE', description: 'Ok, YOU drink' },
-  { key: 'WHORES', description: 'All girls drink' },
-  { key: 'FLOOR', description: 'Everyone races to touch the floor, last person to touch it drinks' },
-  { key: 'DICK', description: 'All guys drink' },
-  { key: 'MATE', description: 'Pick a person to drink with' },
-  { key: 'FRIENDS', description: 'Drink as many sips as persons playing the game' },
+  { key: 'WATERFALL',
+    description: 'Start drinking and it goes round the circle (to the right), you only stop drinking when the person on your left finishes.',
+    level: 3,
+  },
+  { key: 'GOD',
+    description: 'Pick someone to drink',
+    level: 2,
+  },
+  { key: 'KAMIKAZE',
+    description: 'Ok, YOU drink',
+    level: 1,
+  },
+  { key: 'WHORES',
+    description: 'All girls drink',
+    level: 1,
+  },
+  { key: 'FLOOR',
+    description: 'Everyone races to touch the floor, last person to touch it drinks',
+    level: 3,
+  },
+  { key: 'DICK',
+    description: 'All guys drink',
+    level: 3,
+  },
+  { key: 'MATE',
+    description: 'Pick a person to drink with',
+    level: 4,
+  },
+  { key: 'FRIENDS',
+    description: 'Drink as many sips as persons playing the game',
+    level: 1,
+  },
   // TODO: add more rules
 ];

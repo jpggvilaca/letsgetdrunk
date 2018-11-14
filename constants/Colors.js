@@ -12,3 +12,7 @@ export default {
   noticeBackground: tintColor,
   noticeText: '#fff',
 };
+
+export const cardColors = [
+  '#86CB92', '#71B48D', '#404E7C', '#251F47', '#260F26',
+];
