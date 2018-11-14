@@ -41,7 +41,7 @@ class PickPlayers extends Component {
     this.setState({
       inputText: '',
       message: `Player ${inputText} added!`
-    }, () => addPlayer({name: inputText, drinkCount: 0}));
+    }, () => addPlayer({ name: inputText, drinkCount: 0}));
   }
 
   handleStartGame = () => {
@@ -63,7 +63,15 @@ class PickPlayers extends Component {
         keyboardShouldPersistTaps='always'
       >
         <View>
-          {hasSucessMessage ? <Notification text={message} /> : null}
+          {canStartGame && 
+            <TouchableHighlight
+              style={styles.button}
+              onPress={this.handleStartGame}
+              underlayColor='#99d9f4'
+            >
+              <Text style={styles.buttonText}>Start game</Text>
+            </TouchableHighlight>
+          }
 
           <Text style={styles.text}>Add players</Text>
 
@@ -83,15 +91,6 @@ class PickPlayers extends Component {
 
           <PlayerList players={players} />
 
-          {canStartGame && 
-            <TouchableHighlight
-              style={styles.button}
-              onPress={this.handleStartGame}
-              underlayColor='#99d9f4'
-            >
-              <Text style={styles.buttonText}>Start game</Text>
-            </TouchableHighlight>
-          }
         </View>
       </KeyboardAwareScrollView>
     );

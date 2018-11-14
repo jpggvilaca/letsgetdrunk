@@ -52,3 +52,17 @@ export default class App extends Component {
   }
 }
 
+/*
+TODO:
+
+Card component
+Game component with all the cards
+Game should have a start game button
+Game should show the 'permanent' rules somewhere on the screen, open on a modal
+Leaderboard component, open on a modal
+Add more rules
+Add permanent rules
+Add explanation for the card sizes in the pre-game screen
+Add disclaimer (moderation, dont drink and drive)
+
+ */

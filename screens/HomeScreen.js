@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -16,7 +16,9 @@ export default class HomeScreen extends Component {
         <Text style={styles.text}>
           Stupid drinking game just for fun
         </Text>
-        <Button title="Start a new game" onPress={this.handleButtonPress} />
+        <TouchableOpacity style={styles.button} onPress={this.handleButtonPress}>
+          <Text style={styles.buttonText}>Play</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -33,5 +35,16 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     marginBottom: 40
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: 'lightblue',
+    height: 60,
+    width: 200,
+  },
+  buttonText: {
+    fontSize: 24,
   }
 });

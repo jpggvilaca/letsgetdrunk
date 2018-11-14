@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet, FlatList } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, SectionList } from 'react-native';
 
-import { rules } from '../constants/Copy';
+import { instructions, rules, permanentRules } from '../constants/Copy';
 
 export default class RulesScreen extends Component {
   static navigationOptions = {
     title: 'Rules',
   };
 
-  renderItem = ({ item }) => {
+  renderItem = ({ item, index }) => {
     return (
-      <View style={styles.item}>
-        <Text style={styles.name}>{item.key}:</Text>
+      <View style={styles.item} key={index}>
+        {item.key.length ? <Text style={styles.name}>{item.key}:</Text> : null}
         <Text>{item.description}</Text>
       </View>
     );
   }
 
+  renderSectionHeader = ({section: {title}}) => (
+    <Text style={styles.header}>{title}</Text>
+  )
+
   render() {
     return (
       <ScrollView style={styles.container}>
-        <FlatList
-          data={rules}
+        <SectionList
           renderItem={this.renderItem}
+          renderSectionHeader={this.renderSectionHeader}
+          sections={[
+            {title: 'How the game works', data: instructions},
+            {title: 'Main rules', data: rules},
+            {title: 'Permanent rules', data: permanentRules},
+          ]}
+          keyExtractor={(item, index) => item + index}
         />
       </ScrollView>
     );
@@ -34,12 +44,19 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+    paddingBottom: 60,
+  },
+  header: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    marginTop: 10,
   },
   name: {
-    color: 'blue',
-    fontSize: 16,
+    fontSize: 14,
+    marginTop: 8,
+    textDecorationLine: 'underline',
   },
   item: {
-    marginBottom: 10,
+    left: 10,
   },
 });

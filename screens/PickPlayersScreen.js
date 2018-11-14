@@ -5,7 +5,7 @@ import PickPlayers from '../components/PickPlayers';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Back',
+    title: 'Pick players',
   };
 
   render() {
