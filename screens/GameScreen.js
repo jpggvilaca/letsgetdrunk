@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
+import Game from '../components/Game';
 
 export default class GameScreen extends Component {
   static navigationOptions = {
@@ -10,7 +11,7 @@ export default class GameScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Game Screen</Text>
+        <Game />
       </View>
     );
   }

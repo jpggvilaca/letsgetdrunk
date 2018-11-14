@@ -7,10 +7,9 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import PickPlayersScreen from '../screens/PickPlayersScreen';
 import GameScreen from '../screens/GameScreen';
-
 import RulesScreen from '../screens/RulesScreen';
-
 import SettingsScreen from '../screens/SettingsScreen';
+import DebugScreen from '../screens/DebugScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -60,8 +59,23 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+const DebugginStack = createStackNavigator({
+  Debug: DebugScreen,
+});
+
+DebugginStack.navigationOptions = {
+  tabBarLabel: 'Debug',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+    />
+  ),
+};
+
 export default createBottomTabNavigator({
   HomeStack,
   RulesStack,
   SettingsStack,
+  DebugginStack,
 });
