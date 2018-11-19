@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-import Card from './Card';
-
-import { rules } from '../constants/Copy';
+import CardList from './CardList';
 
 class Game extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Game</Text>
-        {rules.map((rule) => (
-          <Card name={rule.key} level={rule.level} />
-        ))}
+        <CardList />
       </View>
     );
   }

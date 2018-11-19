@@ -21,10 +21,10 @@ class Card extends Component {
   }
 
   render() {
-    const { name, level } = this.props;
+    const { name, level, onPress } = this.props;
 
     return (
-      <View style={this.getStyles()}>
+      <View style={this.getStyles()} onPress={onPress}>
         <Text style={styles.cardText}>{name}</Text>
       </View>
     );
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 100,
-    width: 80,
+    width: '100%',
     borderWidth: 1,
   },
   cardText: {
